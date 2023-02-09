@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:streams_tutorial/cubit/ai_cubit/ai_cubit.dart';
 import 'package:streams_tutorial/ui/main_page.dart';
 import 'package:streams_tutorial/utils/get_it.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setup();
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => AiCubit(),)
+    ],
+
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

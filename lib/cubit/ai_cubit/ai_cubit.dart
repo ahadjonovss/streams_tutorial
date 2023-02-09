@@ -9,7 +9,7 @@ import 'package:streams_tutorial/utils/get_it.dart';
 part 'ai_state.dart';
 
 class AiCubit extends Cubit<AiState> {
-  AiCubit() : super(AiInitial());
+  AiCubit() : super(AiState(answer: "Hello! How Can I Help You?"));
 
   StreamController chatStream = StreamController();
 
@@ -21,9 +21,9 @@ class AiCubit extends Cubit<AiState> {
       QuestionModel? result =  await getModel(i);
       if(result!=null && result.question==question){
         isFound = true;
-        return result.answer;
+        emit(AiState(answer: result.answer));
       }else if(result==null){
-        return "Sorry but I don't know";
+        emit(AiState(answer: "Sorry but I don't know"));
       }
     }
     return null;
