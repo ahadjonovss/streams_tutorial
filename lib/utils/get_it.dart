@@ -6,6 +6,6 @@ final getIt = GetIt.instance;
 
 void setup() async {
  final SharedPreferences sharedPref = await SharedPreferences.getInstance();
- getIt.registerLazySingleton(() => StorageRepository());
  getIt.registerSingleton<SharedPreferences>(sharedPref);
+ getIt.registerLazySingleton(() => StorageRepository());
 }

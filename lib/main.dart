@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:streams_tutorial/ui/main_page.dart';
+import 'package:streams_tutorial/utils/get_it.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setup();
   runApp(const MyApp());
 }
 
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: const  MainPage(),
     );
   }
 }

@@ -8,7 +8,7 @@ class StorageRepository {
   Future saveQuestion(String question, int key) async {
     await getIt<SharedPreferences>().setString(key.toString(), question);
     await setLastKey(key);
-    debugPrint("Key and Question has saved");
+    debugPrint("Question: $question has saved");
   }
 
 
@@ -16,8 +16,10 @@ class StorageRepository {
     return getIt<SharedPreferences>().getString(key.toString());
   }
 
-  Future<bool> setLastKey(int key) async {
-    return getIt<SharedPreferences>().setInt("key", key);
+  Future setLastKey(int key) async {
+    await  getIt<SharedPreferences>().setInt("key", key);
+    debugPrint("Key $key has saved");
+
   }
 
   Future<int?> getLastKey() async {
