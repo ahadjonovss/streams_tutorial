@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => AddQuestionPage(),));
               }, child: const Text("Add question")),
               ElevatedButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatPage(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>  ChatPage(),));
 
               }, child: const Text("Chat Page")),
             ],
