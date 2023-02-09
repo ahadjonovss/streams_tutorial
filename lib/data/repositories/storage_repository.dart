@@ -1,26 +1,27 @@
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:streams_tutorial/utils/get_it.dart';
 
 class StorageRepository {
 
   // Saving data
-  Future<bool> savePassword(String password) async {
-    return getIt<SharedPreferences>().setString("password", password);
+  Future saveQuestion(String question, int key) async {
+    await getIt<SharedPreferences>().setString(key.toString(), question);
+    await setLastKey(key);
+    debugPrint("Key and Question has saved");
   }
 
-  Future<bool> deletePassword() async {
-    return getIt<SharedPreferences>().remove("password");
+
+  Future<String?> getQuestion(int key) async {
+    return getIt<SharedPreferences>().getString(key.toString());
   }
 
-  Future<String?> getPassword() async {
-    return getIt<SharedPreferences>().getString("password");
+  Future<bool> setLastKey(int key) async {
+    return getIt<SharedPreferences>().setInt("key", key);
   }
 
-  Future<bool> setStatus() async {
-    return getIt<SharedPreferences>().setString("status", "registered");
-  }
-
-  Future<String?> getStatus() async {
-    return getIt<SharedPreferences>().getString("status");
+  Future<int?> getLastKey() async {
+    return getIt<SharedPreferences>().getInt("key");
   }
 
 }
