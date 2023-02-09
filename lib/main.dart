@@ -7,12 +7,7 @@ import 'package:streams_tutorial/utils/get_it.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setup();
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => AiCubit(),)
-    ],
-
-      child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
