@@ -31,7 +31,7 @@ class AiCubit extends Cubit<AiState> {
         isFound = true;
         addAnswerToStream(result);
       }else if(result==null){
-        addAnswerToStream(MessageModel(answer: "Sorry but I don't know",isAi: true));
+        addAnswerToStream(MessageModel(answer: "Sorry but I don't know. If you want to get answer to this question, you can add the answer through another page ;)",isAi: true));
         isFound = true;
       }
     }
