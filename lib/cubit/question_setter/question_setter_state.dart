@@ -18,6 +18,7 @@ class QuestionSetterState extends Equatable{
 }
 
 enum QuestionStatus{
+  ONPROGRESS,
   DONE,
   ERROR,
   PURE
