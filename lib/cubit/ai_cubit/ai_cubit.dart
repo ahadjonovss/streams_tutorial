@@ -26,7 +26,7 @@ class AiCubit extends Cubit<AiState> {
     bool isFound = false;
     for(int i =0;isFound!=true;i++){
       MessageModel? result =  await getModel(i);
-      if(result!=null && result.question==question){
+      if(result!=null && result.question.toLowerCase()==question.toLowerCase()){
         isFound = true;
         addAnswerToStream(result);
       }else if(result==null){

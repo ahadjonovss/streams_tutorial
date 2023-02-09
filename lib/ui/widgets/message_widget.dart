@@ -21,7 +21,7 @@ class MessageWidget extends StatelessWidget {
             minWidth: 80,
             maxWidth: 200
         ),
-        child: Text(message.answer),
+        child: Text(message.answer,style: const  TextStyle(color: Colors.white),),
       ),
     );
   }
